@@ -21,34 +21,24 @@ Form::Form(const std::string name, const int signGrade, const int execGrade)
     throw Bureaucrat::GradeTooHighException();
   else if (signGrade > 150 || execGrade > 150)
     throw Bureaucrat::GradeTooLowException();
-  // throw grade excpetion
   this->is_signed = false;
 }
 
 Form &Form::operator=(const Form &rhs) {
-  if (this == &rhs)
-    return *this;
-  this->is_signed = rhs.is_signed;
+  if (this != &rhs)
+    this->is_signed = rhs.is_signed;
   return *this;
 }
 
+// copy constructor
 Form::Form(const Form &rhs)
     : name(rhs.name), is_signed(rhs.is_signed), signGrade(rhs.signGrade),
-      execGrade(rhs.execGrade) {
-  if (this != &rhs) {
-    // throw grade excpetion
-    if (this->signGrade < 1)
-      throw Form::GradeTooHighException();
-    else if (this->signGrade > 150)
-      throw Form::GradeTooLowException();
-    this->is_signed = false;
-  }
-}
+      execGrade(rhs.execGrade) {}
 
-Form::~Form() { std::cout << this->name << " Destructor Called" << std::endl; }
+Form::~Form() {}
 
 void Form::beSigned(Bureaucrat &bureaucrat) {
-  if (bureaucrat.getGrade() < this->signGrade)
+  if (bureaucrat.getGrade() > this->signGrade)
     throw Form::GradeTooLowException();
   this->is_signed = true;
 }

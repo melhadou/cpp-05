@@ -29,7 +29,6 @@ int main(void) {
     delete prsedent;
     delete shrubby;
 
-    return 0;
   } catch (std::exception &e) {
 
     std::cerr << e.what() << std::endl;

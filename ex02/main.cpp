@@ -8,7 +8,9 @@ int main(void) {
     Bureaucrat bureau("mohamed", 5);
 
     ShrubberyCreationForm shrubby("shrubby");
+
     RobotomyRequestForm robote("robot");
+
     PresidentialPardonForm presedent("Presid");
 
     std::cout << "------------------------------------------------"
@@ -25,14 +27,6 @@ int main(void) {
     bureau.signForm(robote);
     std::cout << robote << std::endl;
     bureau.executeForm(robote);
-
-    std::cout << "------------------------------------------------"
-              << std::endl;
-
-    // bureau.signForm(presedent);
-    presedent.beSigned(bureau);
-    std::cout << presedent << std::endl;
-    bureau.executeForm(presedent);
 
     std::cout << "------------------------------------------------"
               << std::endl;

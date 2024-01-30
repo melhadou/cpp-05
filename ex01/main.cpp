@@ -3,8 +3,8 @@
 
 int main(void) {
   try {
-    Form form("mohamed", 10, 30);
-    Bureaucrat bureau("hassan", 40);
+    Form form("mohamed", 1, 30);
+    Bureaucrat bureau("hassan", 9);
 
     bureau.signForm(form);
 

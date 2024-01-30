@@ -4,18 +4,18 @@ int main(void) {
   // testing the Bureaucrat
   // std::cout << mohamed << std::endl;
   try {
-    Bureaucrat mohamed("Mohamed", 149);
+    Bureaucrat mohamed("Mohamed", 1);
 
-    std::cout << mohamed.getName() << std::endl;
-    std::cout << mohamed.getGrade() << std::endl;
+    std::cout << mohamed << std::endl;
 
     // testing the GradeTooHighException
-    mohamed.increment();
-    // testing the GradeTooLowException
-    mohamed.decrement();
+    // mohamed.increment();
 
-    std::cout << mohamed.getName() << std::endl;
-    std::cout << mohamed.getGrade() << std::endl;
+    // testing the GradeTooLowException
+    // mohamed.decrement();
+
+    std::cout << mohamed << std::endl;
+
   } catch (const Bureaucrat::GradeTooLowException &e) {
     std::cerr << "Error: Grade too low ->" << std::endl;
     std::cerr << "\t" << e.what() << std::endl;

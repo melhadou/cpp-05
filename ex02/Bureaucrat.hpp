@@ -21,13 +21,13 @@ public:
   /* Grade Too High Exception */
   class GradeTooHighException : public std::exception {
   public:
-    virtual const char *what() const throw() { return "Grade too high"; };
+    virtual const char *what() const throw();
   };
 
   /* Grade Too Low Exception */
   class GradeTooLowException : public std::exception {
   public:
-    virtual const char *what() const throw() { return "Grade too low"; };
+    virtual const char *what() const throw();
   };
 
   /* Utils Functions */
@@ -41,7 +41,7 @@ public:
 
   /* Getters */
   std::string const &getName(void) const;
-  int getGrade(void) const;
+  int const &getGrade(void) const;
 };
 
 /* insertion operator */

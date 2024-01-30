@@ -33,18 +33,10 @@ AForm &AForm::operator=(const AForm &rhs) {
   return *this;
 }
 
+// copy constructor
 AForm::AForm(const AForm &rhs)
     : name(rhs.name), is_signed(rhs.is_signed), signGrade(rhs.signGrade),
-      execGrade(rhs.execGrade) {
-  if (this != &rhs) {
-    // throw grade excpetion
-    if (this->signGrade < 1)
-      throw AForm::GradeTooHighException();
-    else if (this->signGrade > 150)
-      throw AForm::GradeTooLowException();
-    this->is_signed = false;
-  }
-}
+      execGrade(rhs.execGrade) {}
 
 AForm::~AForm() {
   std::cout << this->name << " Destructor Called" << std::endl;
@@ -53,8 +45,6 @@ AForm::~AForm() {
 void AForm::beSigned(Bureaucrat &bureaucrat) {
   if (bureaucrat.getGrade() > this->signGrade)
     throw AForm::GradeTooLowException();
-  // std::cout << this->signGrade << "buro grade => " << bureaucrat.getGrade()
-  //           << std::endl;
   this->is_signed = true;
 }
 

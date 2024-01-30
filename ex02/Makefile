@@ -10,9 +10,6 @@ all: $(NAME)
 $(NAME): $(CXXOBJ)
 	$(CXX) $(CXXFLAGS) $(CXXOBJ) -o $(NAME)
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
 clean:
 	rm -f $(CXXOBJ)
 

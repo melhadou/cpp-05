@@ -7,7 +7,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string const &target)
     : AForm("Robotomy Request", 72, 45), target(target) {}
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &rhs)
-    : AForm(rhs.getName(), 72, 45), target(rhs.target) {
+    : AForm(rhs.getName(), 72, 45) {
   if (this != &rhs)
     *this = rhs;
 }
@@ -22,15 +22,13 @@ RobotomyRequestForm::operator=(RobotomyRequestForm const &rhs) {
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const {
-  std::cout << "robotimzed" << std::endl;
-
   // check requirements
   if (!this->getIsSigned())
     throw RobotomyRequestForm::FormNotSigned();
   if (executor.getGrade() > this->getExecGrade())
     throw RobotomyRequestForm::GradeTooLowException();
 
-  srand(time(NULL));
+  srand(time(0));
 
   // making drilling noises
   std::cout << "drilling noises" << std::endl;
